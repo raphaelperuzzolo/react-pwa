@@ -1,4 +1,5 @@
 import React, { lazy, Suspense } from "react"
+import functions from './functions'
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom"
 const About = lazy(() => import("./About"))
 const Home = lazy(() => import("./Home"))
@@ -16,6 +17,9 @@ const App = () => (
           </li>
         </ul>
       </nav>
+
+      <button className="add-button">Add to home screen</button>
+
       <Switch>
         <Route path="/about">
           <About />
