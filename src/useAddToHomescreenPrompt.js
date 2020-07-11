@@ -23,7 +23,6 @@ export function useAddToHomescreenPrompt() {
     };
 
     window.addEventListener("beforeinstallprompt", ready);
-
     return () => {
       window.removeEventListener("beforeinstallprompt", ready);
     };
