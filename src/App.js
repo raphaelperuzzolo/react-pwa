@@ -1,31 +1,24 @@
 import React, { lazy, Suspense } from "react"
 import { useAddToHomescreenPrompt } from "./useAddToHomescreenPrompt"
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom"
-
 const About = lazy(() => import("./About"))
 const Home = lazy(() => import("./Home"))
 
-
 const App = () => {
+  const [prompt, promptToInstall] = useAddToHomescreenPrompt()
+  const [isVisible, setVisibleState] = React.useState(false)
 
-  const [prompt, promptToInstall] = useAddToHomescreenPrompt();
-  const [isVisible, setVisibleState] = React.useState(false);
+  const hide = () => setVisibleState(false)
 
-  const hide = () => setVisibleState(false);
-
-  React.useEffect(
-    () => {
-      if (prompt) {
-        setVisibleState(true);
-      }
-    },
-    [prompt]
-  );
+  React.useEffect(() => {
+    if (prompt) {
+      setVisibleState(true)
+    }
+  }, [prompt])
 
   if (!isVisible) {
-    return <div />;
+    return <div />
   }
-
 
   return (
     <Router>
@@ -40,9 +33,6 @@ const App = () => {
             </li>
           </ul>
         </nav>
-
-        {/* <button onClick={promptToInstall}>Add to homescreen</button> */}
-
         <div onClick={hide}>
           <button onClick={hide}>Close</button>
             Hello! Wanna add to homescreen?
