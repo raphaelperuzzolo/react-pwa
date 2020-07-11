@@ -6,9 +6,9 @@ const Home = lazy(() => import("./Home"))
 
 const App = () => {
   const [prompt, promptToInstall] = useAddToHomescreenPrompt()
-  const [isVisible, setVisibleState] = React.useState(false)
+  // const [isVisible, setVisibleState] = React.useState(false)
 
-  const hide = () => setVisibleState(false)
+  // const hide = () => setVisibleState(false)
 
   // React.useEffect(() => {
   //   if (prompt) {
@@ -29,7 +29,7 @@ const App = () => {
             </li>
           </ul>
         </nav>
-        {prompt && (<button onClick={promptToInstall}>Add to homescreen</button>)}
+        {prompt && <button onClick={promptToInstall}>Add to homescreen</button>}
         <Switch>
           <Route path="/about">
             <About />
