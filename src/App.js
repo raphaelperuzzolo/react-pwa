@@ -10,15 +10,11 @@ const App = () => {
 
   const hide = () => setVisibleState(false)
 
-  React.useEffect(() => {
-    if (prompt) {
-      setVisibleState(true)
-    }
-  }, [prompt])
-
-  if (!isVisible) {
-    return <div />
-  }
+  // React.useEffect(() => {
+  //   if (prompt) {
+  //     setVisibleState(true)
+  //   }
+  // }, [prompt])
 
   return (
     <Router>
@@ -33,12 +29,7 @@ const App = () => {
             </li>
           </ul>
         </nav>
-        <div onClick={hide}>
-          <button onClick={hide}>Close</button>
-            Hello! Wanna add to homescreen?
-          <button onClick={promptToInstall}>Add to homescreen</button>
-        </div>
-
+        {prompt && (<button onClick={promptToInstall}>Add to homescreen</button>)}
         <Switch>
           <Route path="/about">
             <About />
