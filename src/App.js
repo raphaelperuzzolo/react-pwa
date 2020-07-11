@@ -1,42 +1,59 @@
 import React, { lazy, Suspense } from "react"
-import { addToHomeScreen } from './functions'
+import { useAddToHomescreenPrompt } from "./useAddToHomescreenPrompt"
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom"
 
 const About = lazy(() => import("./About"))
 const Home = lazy(() => import("./Home"))
 
-const handleAddToHomescreenClick = () => {
-  console.log(`
-    1. Open Share menu
-    2. Tap on "Add to Home Screen" button`);
-};
+
+const App = () => {
+
+  const [prompt, promptToInstall] = useAddToHomescreenPrompt();
+  // const [isVisible, setVisibleState] = React.useState(false);
+
+  // const hide = () => setVisibleState(false);
+
+  // React.useEffect(
+  //   () => {
+  //     if (prompt) {
+  //       setVisibleState(true);
+  //     }
+  //   },
+  //   [prompt]
+  // );
+
+  // if (!isVisible) {
+  //   return <div />;
+  // }
 
 
-const App = () => (
-  <Router>
-    <Suspense fallback={<div>Loading...</div>}>
-      <nav>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/about">About</Link>
-          </li>
-        </ul>
-      </nav>
-      <button className="add-button">Add to home screen</button>
+  return (
+    <Router>
+      <Suspense fallback={<div>Loading...</div>}>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/about">About</Link>
+            </li>
+          </ul>
+        </nav>
+        <button onClick={promptToInstall}>Add to homescreen</button>
 
-      <Switch>
-        <Route path="/about">
-          <About />
-        </Route>
-        <Route path="/">
-          <Home />
-        </Route>
-      </Switch>
-    </Suspense>
-  </Router>
-)
+
+        <Switch>
+          <Route path="/about">
+            <About />
+          </Route>
+          <Route path="/">
+            <Home />
+          </Route>
+        </Switch>
+      </Suspense>
+    </Router>
+  )
+}
 
 export default App
