@@ -1,6 +1,5 @@
 import React, { lazy, Suspense } from "react"
 import { addToHomeScreen } from './functions'
-import AddToHomescreen from 'react-add-to-homescreen';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom"
 
 const About = lazy(() => import("./About"))
@@ -26,7 +25,6 @@ const App = () => (
           </li>
         </ul>
       </nav>
-      <AddToHomescreen onAddToHomescreenClick={() => handleAddToHomescreenClick} />
       <button className="add-button">Add to home screen</button>
 
       <Switch>
