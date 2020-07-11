@@ -9,22 +9,22 @@ const Home = lazy(() => import("./Home"))
 const App = () => {
 
   const [prompt, promptToInstall] = useAddToHomescreenPrompt();
-  // const [isVisible, setVisibleState] = React.useState(false);
+  const [isVisible, setVisibleState] = React.useState(false);
 
-  // const hide = () => setVisibleState(false);
+  const hide = () => setVisibleState(false);
 
-  // React.useEffect(
-  //   () => {
-  //     if (prompt) {
-  //       setVisibleState(true);
-  //     }
-  //   },
-  //   [prompt]
-  // );
+  React.useEffect(
+    () => {
+      if (prompt) {
+        setVisibleState(true);
+      }
+    },
+    [prompt]
+  );
 
-  // if (!isVisible) {
-  //   return <div />;
-  // }
+  if (!isVisible) {
+    return <div />;
+  }
 
 
   return (
@@ -40,8 +40,14 @@ const App = () => {
             </li>
           </ul>
         </nav>
-        <button onClick={promptToInstall}>Add to homescreen</button>
 
+        {/* <button onClick={promptToInstall}>Add to homescreen</button> */}
+
+        <div onClick={hide}>
+          <button onClick={hide}>Close</button>
+            Hello! Wanna add to homescreen?
+          <button onClick={promptToInstall}>Add to homescreen</button>
+        </div>
 
         <Switch>
           <Route path="/about">
