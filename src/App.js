@@ -5,7 +5,7 @@ const About = lazy(() => import("./About"))
 const Home = lazy(() => import("./Home"))
 
 const App = () => {
-  const [promptToInstall] = useAddToHomescreenPrompt()
+  const [prompt, promptToInstall] = useAddToHomescreenPrompt()
 
   return (
     <Router>
@@ -21,6 +21,7 @@ const App = () => {
           </ul>
         </nav>
         {/* {prompt && <button onClick={promptToInstall}>Add to homescreen</button>} */}
+        {console.log(prompt)}
         <button onClick={promptToInstall}>Add to homescreen</button>
         <Switch>
           <Route path="/about">
