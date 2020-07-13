@@ -28,5 +28,5 @@ export function useAddToHomescreenPrompt() {
     };
   }, []);
 
-  return [prompt, promptToInstall];
+  return [promptToInstall];
 }

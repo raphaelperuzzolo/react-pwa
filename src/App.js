@@ -5,7 +5,7 @@ const About = lazy(() => import("./About"))
 const Home = lazy(() => import("./Home"))
 
 const App = () => {
-  const [prompt, promptToInstall] = useAddToHomescreenPrompt()
+  const [promptToInstall] = useAddToHomescreenPrompt()
 
   return (
     <Router>
