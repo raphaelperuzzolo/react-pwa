@@ -20,7 +20,8 @@ const App = () => {
             </li>
           </ul>
         </nav>
-        {prompt && <button onClick={promptToInstall}>Add to homescreen</button>}
+        {/* {prompt && <button onClick={promptToInstall}>Add to homescreen</button>} */}
+        <button onClick={promptToInstall}>Add to homescreen</button>
         <Switch>
           <Route path="/about">
             <About />
